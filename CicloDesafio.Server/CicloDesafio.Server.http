@@ -1,0 +1,6 @@
+@CicloDesafio.Server_HostAddress = http://localhost:5269
+
+GET {{CicloDesafio.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
