@@ -53,9 +53,9 @@ export default function Formulario() {
       nome: e.target.nome.value.trim(),
       telefone: e.target.telefone.value.trim(),
       cidade: e.target.cidade.value.trim(),
-      genero: Number(e.target.genero.value),
+      genero: Number(genero),
       cpf: e.target.cpf.value.trim(),
-      modalidade: Number(e.target.modalidade.value),
+      modalidade: Number(modalidade),
     };
     const options = {
       headers: { "Content-Type": "application/json" },
@@ -85,10 +85,21 @@ export default function Formulario() {
 
   return (
     <Container maxWidth="sm">
-      <Typography variant="h1" gutterBottom sx={{ fontSize: 40, textAlign: "center" }}>
+      <Typography variant="h1" gutterBottom>
+        Ciclo Desafio 2024
+      </Typography>
+      <Typography variant="h2" gutterBottom>
         Formulário de inscrição
       </Typography>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "1rem",
+          marginBlock: "2rem",
+        }}
+      >
         <TextField id="nome" label="Nome" variant="outlined" fullWidth required />
         <TextField id="telefone" label="Telefone" variant="outlined" fullWidth required />
         <TextField id="cidade" label="Cidade" variant="outlined" fullWidth required />

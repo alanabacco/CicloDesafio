@@ -11,6 +11,8 @@ import App from "./App.tsx";
 import ErrorPage from "./pages/ErrorPage/index.tsx";
 import Formulario from "./pages/Formulario/index.tsx";
 import Dashboard from "./pages/Dashboard/index.tsx";
+import { ThemeProvider } from "@emotion/react";
+import { LightTheme } from "./themes/Light.ts";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +32,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <CssBaseline />
-    <RouterProvider router={router} />
+    <ThemeProvider theme={LightTheme}>
+      <CssBaseline />
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );

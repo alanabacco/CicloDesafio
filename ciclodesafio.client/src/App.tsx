@@ -1,11 +1,9 @@
 import { Link as RouterLink } from "react-router-dom";
-import Link from "@mui/material/Link";
-import "./App.css";
-import Typography from "@mui/material/Typography";
+import { Container, Link, Typography } from "@mui/material";
 
 function App() {
   return (
-    <div>
+    <Container>
       <Typography variant="h1" gutterBottom>
         Ciclo Desafio 2024
       </Typography>
@@ -20,9 +18,9 @@ function App() {
       </Typography>
 
       <Link to="/formulario" component={RouterLink}>
-        Fazer inscrição
+        FAZER INSCRIÇÃO
       </Link>
-    </div>
+    </Container>
   );
 }
 
