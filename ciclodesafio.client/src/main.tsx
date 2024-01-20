@@ -7,12 +7,11 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import CssBaseline from "@mui/material/CssBaseline";
 import "./index.css";
+import { AppThemeProvider } from "./themes/ThemeContext.tsx";
 import App from "./App.tsx";
 import ErrorPage from "./pages/ErrorPage/index.tsx";
 import Formulario from "./pages/Formulario/index.tsx";
 import Dashboard from "./pages/Dashboard/index.tsx";
-import { ThemeProvider } from "@emotion/react";
-import { LightTheme } from "./themes/Light.ts";
 
 const router = createBrowserRouter([
   {
@@ -32,9 +31,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ThemeProvider theme={LightTheme}>
+    <AppThemeProvider>
       <CssBaseline />
       <RouterProvider router={router} />
-    </ThemeProvider>
+    </AppThemeProvider>
   </React.StrictMode>
 );

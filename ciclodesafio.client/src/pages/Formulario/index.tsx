@@ -1,7 +1,7 @@
 import {
   Alert,
+  Box,
   Button,
-  Container,
   FormControl,
   InputLabel,
   MenuItem,
@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 interface FormProps extends ChangeEvent<HTMLFormElement> {
   target: HTMLFormElement & {
@@ -84,11 +85,20 @@ export default function Formulario() {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h1" gutterBottom>
+    <Box
+      maxWidth="sm"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      gap={1}
+      marginInline="auto"
+      marginBlock={3}
+      paddingInline={2}
+    >
+      <Typography variant="h3" component="h1">
         Ciclo Desafio 2024
       </Typography>
-      <Typography variant="h2" gutterBottom>
+      <Typography variant="h4" component="h2">
         Formulário de inscrição
       </Typography>
       <form
@@ -97,7 +107,8 @@ export default function Formulario() {
           display: "flex",
           flexDirection: "column",
           gap: "1rem",
-          marginBlock: "2rem",
+          marginTop: "0.5rem",
+          width: "100%",
         }}
       >
         <TextField id="nome" label="Nome" variant="outlined" fullWidth required />
@@ -136,9 +147,14 @@ export default function Formulario() {
             <MenuItem value={1}>Corrida a pé</MenuItem>
           </Select>
         </FormControl>
-        <Button variant="contained" type="submit">
-          Cadastrar inscrição
-        </Button>
+        <Box display="flex" gap={1} justifyContent="space-between">
+          <Button to="/" component={RouterLink} variant="outlined">
+            Cancelar
+          </Button>
+          <Button variant="contained" type="submit">
+            Cadastrar inscrição
+          </Button>
+        </Box>
 
         <Snackbar
           autoHideDuration={5000}
@@ -156,6 +172,6 @@ export default function Formulario() {
           </Alert>
         </Snackbar>
       </form>
-    </Container>
+    </Box>
   );
 }
